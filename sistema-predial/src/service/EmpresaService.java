@@ -12,7 +12,7 @@ public class EmpresaService {
 		dao = new EmpresaDAO();
 	}
 	
-	public void inserir(Empresa em) {
+	public void incluir(Empresa em) {
 		dao.incluir(em);
 	}
 	

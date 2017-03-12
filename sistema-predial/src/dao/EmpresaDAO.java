@@ -34,7 +34,7 @@ public class EmpresaDAO {
 	
 	// Atualizar uma empresa
 	public void atualizar(Empresa em, String cnpj) {
-		String sqlUpdate = "UPDATE empresa SET rsocial=?, cnpj=?, , temp=?, conjunto=?, horaF=?, horaA=? WHERE cnpj=?";
+		String sqlUpdate = "UPDATE empresa SET rsocial=?, cnpj=?, temp=?, conjunto=?, horaF=?, horaA=? WHERE cnpj=?";
 		
 		if(em != null) {
 			try(Connection conn = ConnectionFactory.obtemConexao(); PreparedStatement stm = conn.prepareStatement(sqlUpdate);) {
@@ -75,7 +75,7 @@ public class EmpresaDAO {
 	// Carregar uma empresa
 	public Empresa carregar(String cnpj) {
 		Empresa em = new Empresa();
-		String sqlSelect = "SELECT FROM empresa WHERE cnpj=?";
+		String sqlSelect = "SELECT * FROM empresa WHERE cnpj=?";
 		
 		try(Connection conn = ConnectionFactory.obtemConexao(); PreparedStatement stm = conn.prepareStatement(sqlSelect);) {
 			stm.setString(1, cnpj);
@@ -112,7 +112,7 @@ public class EmpresaDAO {
 		
 		try(Connection conn = ConnectionFactory.obtemConexao(); PreparedStatement stm = conn.prepareStatement(sqlSelect);) {
 			try(ResultSet rs = stm.executeQuery();) {
-				if(rs.next()) {
+				while(rs.next()) {
 					Empresa em = new Empresa();
 					
 					em.setRazaoSocial(rs.getString("rsocial"));
@@ -139,5 +139,4 @@ public class EmpresaDAO {
 		
 		return ems;
 	}
-	
 }

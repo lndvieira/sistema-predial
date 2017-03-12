@@ -14,8 +14,8 @@ public class ConnectionFactory {
 		}
 	}
 	
-	// obtem a conexão com o banco de dados
+	// Obtem a conexão com o banco de dados
 	public static Connection obtemConexao() throws SQLException {
-		return (Connection) DriverManager.getConnection("jdbc:mysql://localhost/predial?user=root&password=alunos");
+		return (Connection) DriverManager.getConnection("jdbc:mysql://localhost/predial?user=alunos&password=alunos");
 	}
 }

@@ -8,3 +8,6 @@ RA: 201517432
 
 João Pedro de Souza Lima Cruz  
 RA: 201517909
+
+Leandro Henrique de Souza Vieira
+RA: 201518012
